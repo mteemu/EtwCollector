@@ -1,4 +1,4 @@
-﻿open Microsoft.Diagnostics.Tracing;
+open Microsoft.Diagnostics.Tracing;
 open Microsoft.Diagnostics.Tracing.Session;
 open System
 open System.Threading
