@@ -7,10 +7,9 @@ USAGE: EtwCollector.exe [--help] --session <string> --providers [<string>...]
 
 OPTIONS:
 
-    --session <string>    specify etw session name
-    --providers [<string>...]
-                          specify etw provider(s).
-    --help                display this list of options.
+    --session <string> specify etw session name
+    --providers [<string>...] specify etw provider(s).
+    --help display this list of options.
     
     
 For example if you want to listen IIS 8.5 events:
