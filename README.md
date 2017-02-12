@@ -17,7 +17,7 @@ For example if you want to listen IIS 8.5 events:
 
 > EtwCollector.exe --session "IIS events" --providers "Microsoft-Windows-IIS"
 
-To listen multiple providers separate providers with whitespace:
+To listen multiple providers separate with whitespace:
 
 > EtwCollector.exe --session "IIS events" --providers "Microsoft-Windows-IIS" "Microsoft-Windows-IIS-W3SVC"
 
