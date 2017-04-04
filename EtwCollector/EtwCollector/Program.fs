@@ -3,6 +3,7 @@ open Microsoft.Diagnostics.Tracing.Session;
 open System
 open System.Threading
 open Argu
+open FSharp.Configuration
 
 type CliArgs =
     |  [<Mandatory>] Session of string
@@ -13,7 +14,9 @@ with
             match s with
             | Session _ -> "specify etw session name"
             | Providers _ -> "specify etw provider(s)."
-         
+        
+type Configuration = AppSettings<"app.config">
+
 let printEvent (event:TraceEvent) = 
     if event.EventName <> "ManifestData" then
         printfn "***** %s *****" event.EventName 
@@ -31,6 +34,7 @@ let run (sessionName: string) (providers: list<string>) =
 
 [<EntryPoint>]
 let main argv = 
+    
     let errorHandler = ProcessExiter(colorizer = function ErrorCode.HelpText -> None | _ -> Some ConsoleColor.Red)
     let parser = ArgumentParser.Create<CliArgs>(programName = "EtwCollector.exe", errorHandler = errorHandler)
     let args = parser.ParseCommandLine argv
